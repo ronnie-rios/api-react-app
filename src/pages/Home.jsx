@@ -5,17 +5,25 @@ import { getPosts } from "../services/apiService";
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getPosts();
-      setLoading(false);
-      setPosts(data);
+      try {
+        const data = await getPosts();
+        setPosts(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
   }, []);
 
   if (loading) return <p>loading</p>;
+
+  if(error) return <p className="text-2xl text-red-600">Sorry there was an error</p>
 
   return (
     <main className="p-10">
