@@ -9,7 +9,7 @@ const Card = ({ post }) => {
     <div className="border rounded-md border-gray-500 p-10 my-4">
       <h1 className="text-xl font-bold">{id}: {title}</h1>
       <button
-        className="bg-green-500 p-2 text-white rounded-md my-4"
+        className="bg-green-500 p-2 text-white rounded-md mt-8"
         onClick={()=> navigate(`/details/${id}`)}>View Details</button>
     </div>
   )

@@ -10,9 +10,9 @@ const Details = () => {
   if (loading) return <p className="p-10">loading</p>;
   return (
     <section className="p-10">
-      <h2>Post Details</h2>
+      <h2 className=" text-2xl text-strong mb-4 border-b-2 border-black">Post Details</h2>
       {error ? <p className="text-2xl text-red-600">Sorry there was an error: {error.message}</p> : ''}
-      <h3>{post.id}: {post.title}</h3>
+      <h3 className="text-xl text-strong mb-4">{post.id}: {post.title}</h3>
       <p>{post.body}</p>
     </section>
   );

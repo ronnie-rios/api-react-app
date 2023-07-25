@@ -1,34 +1,6 @@
-class ApiService {
-  static async getPosts() {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw new Error("failed to get");
-    }
-  }
-
-  static async getSinglePost(id) {
-    try {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${id}`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw new Error("failed to get");
-    }
-  }
-}
-
-export default ApiService;
-
-export async function getPosts() {
+export async function getPosts(page) {
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`);
     const data = await response.json();
     return data;
   } catch (error) {
