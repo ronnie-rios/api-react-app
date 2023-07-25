@@ -1,33 +1,29 @@
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
+import { getPosts } from "../services/apiService";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
-    if (!loading && posts) {
-      fetchAll();
-    }
-  }, [loading]);
-
-  const fetchAll = async () => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const data = await response.json();
-    setLoading(false);
-    setPosts(data);
-  };
+    const fetchData = async () => {
+      const data = await getPosts();
+      setLoading(false);
+      setPosts(data);
+    };
+    fetchData();
+  }, []);
 
   if (loading) return <p>loading</p>;
 
   return (
-    <>
-      <h1>Posts</h1>
+    <main className="p-10">
+      <h1 className="p-4">Posts</h1>
       {posts.map((post) => (
         <Card key={post.id} post={post} />
       ))}
-    </>
+    </main>
   );
 };
 
