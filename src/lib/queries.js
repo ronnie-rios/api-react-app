@@ -13,3 +13,23 @@ export const MOVIES_QUERY = gql`
     }
   }
 `;
+//$id = the symbol used to indicate that its a variable, choose any name
+//ID  ! means no null
+export const SINGLE_MOVIE_QUERY = gql`
+  query GetMovieById($id: ID!) {
+    film(id: $id) {
+      title
+      director
+      releaseDate
+      episodeID
+      edited
+      producers
+      characterConnection {
+        characters {
+          name
+        }
+      }
+      
+    }
+  }
+`;

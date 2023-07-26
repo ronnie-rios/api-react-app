@@ -7,6 +7,7 @@ const Card = ({ data, type }) => {
   //render card
   const renderPostCard = () => {
     const { id, title } = data;
+    
     return (
       <div className="border rounded-md border-gray-500 p-10 my-4">
         <h1 className="text-xl font-bold">
@@ -27,18 +28,23 @@ const Card = ({ data, type }) => {
   //render movies
   const renderFilmCard = () => {
     const { id, title, director, releaseDate } = data;
-    console.log(data);
+    
     return (
       <div className="border rounded-md border-gray-500 p-10 my-4">
         <h1 className="text-xl font-bold">
-          {type === 'film' ? `${id}: ` : ''} {title}
+           {title}
         </h1>
-        {type === 'film' && (
-          <>
+       
+          <div>
             <p>Directed by: {director}</p>
             <p>Released: {releaseDate}</p>
-          </>
-        )}
+          </div>
+          <button
+            className="bg-green-500 p-2 text-white rounded-md mt-8"
+            onClick={() => navigate(`/movies/${id}`)}
+          >
+            View Details
+          </button>
       </div>
     );
   };

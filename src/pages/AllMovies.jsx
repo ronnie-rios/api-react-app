@@ -16,7 +16,7 @@ const AllRocketPage = () => {
   const films = data.allFilms.films;
 
   return (
-    <div>
+    <div className='p-10'>
       <h1>Star War Movies</h1>
       {films.map((film) => (
         <Card key={film.id} data={film} type="film" />

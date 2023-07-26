@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Nav from './components/Nav';
 import Details from './pages/Details';
 import AllMovies from './pages/AllMovies';
+import MovieDetails from './pages/MovieDetails';
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/details/:id' element={<Details />}/>
-          <Route path='/rockets' element={<AllMovies />} />
+          <Route path='/movies' element={<AllMovies />} />
+          <Route path='/movies/:id' element={<MovieDetails />} />
         </Routes>
       </Router>
     </>
