@@ -11,7 +11,7 @@ const Card = ({ data, type }) => {
     return (
       <div className="border rounded-md border-gray-500 p-10 my-4">
         <h1 className="text-xl font-bold">
-          {title}
+          {id}: {title}
         </h1>
         
           <button
@@ -48,6 +48,7 @@ const Card = ({ data, type }) => {
       </div>
     );
   };
+
 
   return type === 'post' ? renderPostCard() : renderFilmCard();
 }

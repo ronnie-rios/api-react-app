@@ -27,9 +27,26 @@ export const SINGLE_MOVIE_QUERY = gql`
       characterConnection {
         characters {
           name
+          created
+          birthYear
+          homeworld {
+            name
+          }
         }
       }
-      
+      vehicleConnection {
+        vehicles {
+          name
+          model
+        }
+      }
+      starshipConnection {
+        starships {
+          model
+          name
+          id
+        }
+      }
     }
   }
 `;
