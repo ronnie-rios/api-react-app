@@ -1,9 +1,10 @@
-import useGraphQLQuery from '../hooks/useGraphQLQuery';
+//import useGraphQLQuery from '../hooks/useGraphQLQuery';
 import Card from '../components/Card';
 import { MOVIES_QUERY } from "../lib/queries";
+import { useQuery } from '@apollo/client';
 
 const AllRocketPage = () => {
-  const { loading, error, data } = useGraphQLQuery(MOVIES_QUERY);
+  const { loading, error, data } = useQuery(MOVIES_QUERY);
 
 
   if (loading) return <p>Loading...</p>;

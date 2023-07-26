@@ -4,12 +4,12 @@ const Nav = () => {
   return (
     <nav className="flex items-center justify-between p-4">
         <h3 className="text-2xl">API WRAPPER</h3>
-      <ul className="flex gap-8 text-lg">
+      <ul className="flex gap-8 text-md">
         <Link to='/'>
-          <li className="  text-lg">Home</li>
+          <li className="  ">Home</li>
         </Link>
         <Link to='/movies'>
-          <li className="  text-lg">View Rockets</li>
+          <li className="  ">View Star Wars Movies</li>
         </Link>
       </ul>
     </nav>
