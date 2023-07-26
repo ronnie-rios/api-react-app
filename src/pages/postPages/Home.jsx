@@ -1,6 +1,6 @@
-import Card from "../components/Card";
-import useFetchData from "../hooks/useFetchData";
-import { getPosts } from "../services/apiService";
+import Card from "../../components/Card";
+import useFetchData from "../../hooks/useFetchData";
+import { getPosts } from "../../services/apiService";
 import { useState } from "react";
 
 const Home = () => {

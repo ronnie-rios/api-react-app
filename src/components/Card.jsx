@@ -20,7 +20,6 @@ const Card = ({ data, type }) => {
           >
             View Details
           </button>
-
       </div>
     );
   };

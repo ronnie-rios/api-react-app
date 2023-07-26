@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Home from './pages/Home';
+import Home from './pages/postPages/Home';
 import Nav from './components/Nav';
-import Details from './pages/Details';
-import AllMovies from './pages/AllMovies';
-import MovieDetails from './pages/MovieDetails';
+import Details from './pages/postPages/Details';
+import AllMovies from './pages/moviePages/AllMovies';
+import MovieDetails from './pages/moviePages/MovieDetails';
 
 function App() {
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { SINGLE_MOVIE_QUERY } from "../lib/queries";
-import StarWarsCard from "../components/StarWarsCard";
+import { SINGLE_MOVIE_QUERY } from "../../lib/queries";
+import StarWarsCard from "../../components/StarWarsCard";
 
 const MovieDetails = () => {
   const { id } = useParams();
