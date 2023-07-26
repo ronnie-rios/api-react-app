@@ -26,7 +26,8 @@ const Card = ({ data, type }) => {
 
   //render movies
   const renderFilmCard = () => {
-    const { id, title, director, releaseData } = data;
+    const { id, title, director, releaseDate } = data;
+    console.log(data);
     return (
       <div className="border rounded-md border-gray-500 p-10 my-4">
         <h1 className="text-xl font-bold">
@@ -35,7 +36,7 @@ const Card = ({ data, type }) => {
         {type === 'film' && (
           <>
             <p>Directed by: {director}</p>
-            <p>Released: {releaseData}</p>
+            <p>Released: {releaseDate}</p>
           </>
         )}
       </div>

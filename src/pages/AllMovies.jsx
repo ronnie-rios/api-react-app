@@ -19,7 +19,7 @@ const AllRocketPage = () => {
     <div>
       <h1>Star War Movies</h1>
       {films.map((film) => (
-        <Card key={film.id} data={film} dataType="film" />
+        <Card key={film.id} data={film} type="film" />
       ))}
     </div>
   );
