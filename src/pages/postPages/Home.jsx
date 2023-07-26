@@ -18,7 +18,7 @@ const Home = () => {
         </button>
         <button onClick={() => setPage(page + 1)} disabled={page === 10}>Next</button>
       </div>
-      {loading ? <p className="p-10">Loading...</p> : posts.map((post) => (
+      {loading ? <p className="p-10">Loading...</p> : posts.map(post => (
         <Card key={post.id} data={post} type='post' />
       ))}
       {error ? (

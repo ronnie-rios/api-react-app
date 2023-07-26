@@ -25,60 +25,58 @@ const MovieDetails = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const {
-    title,
-    director,
-    releaseDate,
-    characterConnection,
-    vehicleConnection,
-    starshipConnection,
-  } = data.film;
+  const { title, director, releaseDate, characterConnection, vehicleConnection, starshipConnection } = data.film;
 
   const chars = characterConnection.characters;
   const vehicles = vehicleConnection.vehicles;
   const starships = starshipConnection.starships;
+  
+  const sectionInfo = [
+    {
+      key: "chars",
+      title: "Characters",
+      data: chars,
+      type: "chars",
+    },
+    {
+      key: "vehicles",
+      title: "Vehicles",
+      data: vehicles,
+      type: "vehicle",
+    },
+    {
+      key: "starships",
+      title: "Starships",
+      data: starships,
+      type: "starship",
+    },
+  ];
 
   return (
-    <section>
-      <h1>{title}</h1>
-      <p>Directed by: {director}</p>
-      <p>Released: {releaseDate}</p>
+    <section className="p-10 flex flex-col max-w-screen-xl mx-auto">
+      <div className="items-center m-2">
+        <h1 className="text-strong text-2xl">{title}</h1>
+        <p>Directed by: {director}</p>
+        <p>Released: {releaseDate}</p>
+      </div>
 
-      <button onClick={() => toggleSection("chars")}>View Characters</button>
-      {active.chars && chars && chars.length > 0 && (
-        <>
-          <h2>Characters</h2>
-          <ul>
-            {chars.map((character, i) => (
-              <StarWarsCard data={character} key={i} type="chars" />
-            ))}
-          </ul>
-        </>
-      )}
-
-      <button onClick={() => toggleSection("vehicles")}>View Vehicles</button>
-      {active.vehicles && vehicles && vehicles.length > 0 && (
-        <>
-          <h2>Vehicles</h2>
-          <ul>
-            {vehicles.map((vehicle, i) => (
-              <StarWarsCard data={vehicle} key={i} type="vehicle" />
-            ))}
-          </ul>
-        </>
-      )}
-
-      <button onClick={() => toggleSection("starships")}>View Starships</button>
-      {active.starships && starships && starships.length > 0 && (
-        <>
-          <h2>starships</h2>
-          <ul>
-            {starships.map((starship, i) => (
-              <StarWarsCard data={starship} key={i} type="starship" />
-            ))}
-          </ul>
-        </>
-      )}
+      {sectionInfo.map((section) => (
+      <div key={section.key}>
+        <button onClick={() => toggleSection(section.key)}>
+          {active[section.key] ? "Close" : `View ${section.title}`}
+        </button>
+        {active[section.key] && section.data && section.data.length > 0 && (
+          <>
+            <h2>{section.title}</h2>
+            <ul className="grid grid-cols-3 gap-1 py-10">
+              {section.data.map((item, i) => (
+                <StarWarsCard data={item} key={i} type={section.type} />
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+    ))}
     </section>
   );
 };
