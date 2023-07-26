@@ -11,16 +11,16 @@ const Card = ({ data, type }) => {
     return (
       <div className="border rounded-md border-gray-500 p-10 my-4">
         <h1 className="text-xl font-bold">
-          {type === 'post' ? `${id}: ` : ''} {title}
+          {title}
         </h1>
-        {type === 'post' && (
+        
           <button
             className="bg-green-500 p-2 text-white rounded-md mt-8"
             onClick={() => navigate(`/details/${id}`)}
           >
             View Details
           </button>
-        )}
+
       </div>
     );
   };
