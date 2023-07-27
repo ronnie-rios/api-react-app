@@ -6,10 +6,13 @@ const Nav = () => {
         <h3 className="text-2xl">API WRAPPER</h3>
       <ul className="flex gap-8 text-md">
         <Link to='/'>
-          <li className="  ">Home</li>
+          <li className="hover:underline">Home</li>
         </Link>
         <Link to='/movies'>
-          <li className="  ">View Star Wars Movies</li>
+          <li className="hover:underline">View Star Wars Movies</li>
+        </Link>
+        <Link to='/example'>
+          <li className="hover:underline">Example</li>
         </Link>
       </ul>
     </nav>
