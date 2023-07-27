@@ -15,9 +15,12 @@ const SearchForm = ({ allData }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    //filter the data destructure from props, chars represents each item
     const result = allData.filter((chars) =>
+    //need the name property to lowerCase() use the .includes()pass in the search query state from our unput
       chars.name.toLowerCase().includes(searchQuery.query.toLowerCase())
     );
+    //if there is a result, set the state
     if (result.length > 0) {
       setSearchResult(result[0]);
       setNotFound("");
