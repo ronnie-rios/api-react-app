@@ -1,25 +1,27 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Card = ({ data, type }) => {
   const navigate = useNavigate();
+  const [showBody, setShowBody] = useState(false);
 
   //render card
   const renderPostCard = () => {
-    const { id, title } = data;
-    
+    const { id, title, body } = data;
     return (
       <div className="border rounded-md border-gray-500 p-10 my-4">
         <h1 className="text-xl font-bold">
           {id}: {title}
         </h1>
         
-          <button
-            className="bg-green-500 p-2 text-white rounded-md mt-8"
-            onClick={() => navigate(`/details/${id}`)}
-          >
-            View Details
-          </button>
+        {showBody && <p className="pt-4">{body}</p>}
+        <button
+          className="bg-green-500 p-2 text-white rounded-md mt-8"
+          onClick={() => setShowBody(!showBody)} // Toggle the visibility of the post body for this card on button click
+        >
+          {showBody ? "Hide Body" : "View Body"}
+        </button>
       </div>
     );
   };
