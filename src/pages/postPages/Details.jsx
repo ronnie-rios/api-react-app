@@ -9,7 +9,7 @@ const Details = () => {
 
   if (loading) return <p className="p-10">loading</p>;
   return (
-    <section className="p-10">
+    <section className="p-10 max-w-screen-xl mx-auto">
       <h2 className=" text-2xl text-strong mb-4 border-b-2 border-black">
         Post Details
       </h2>

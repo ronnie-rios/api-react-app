@@ -10,7 +10,7 @@ const Home = () => {
   const { data: posts, loading, error } = useFetchData(getPosts, page);
 
   return (
-    <main className="p-10">
+    <main className="p-10 max-w-screen-xl mx-auto">
       <h1 className="text-2xl text-strong pb-10">Posts</h1>
       <div className="flex items-center justify-between">
         <button onClick={() => setPage(page - 1)} disabled={page === 1}>

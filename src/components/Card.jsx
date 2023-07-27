@@ -17,7 +17,7 @@ const Card = ({ data, type }) => {
         
         {showBody && <p className="pt-4">{body}</p>}
         <button
-          className="bg-green-500 p-2 text-white rounded-md mt-8"
+          className="bg-green-500 hover:bg-green-800 p-2 text-white rounded-md mt-8"
           onClick={() => setShowBody(!showBody)} // Toggle the visibility of the post body for this card on button click
         >
           {showBody ? "Hide Body" : "View Body"}
@@ -41,7 +41,7 @@ const Card = ({ data, type }) => {
             <p>Released: {releaseDate}</p>
           </div>
           <button
-            className="bg-green-500 p-2 text-white rounded-md mt-8"
+            className="bg-green-500 hover:bg-green-8 p-2 text-white rounded-md mt-8"
             onClick={() => navigate(`/movies/${id}`)}
           >
             View Details
