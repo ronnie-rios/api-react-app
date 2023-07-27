@@ -90,7 +90,7 @@ const MovieDetails = () => {
               <h2 className="text-xl border-b-2 border-black mb-2">
                 {section.title}
               </h2>
-              <ul className="grid grid-cols-3 gap-4 py-10">
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 py-10">
                 {section.data.map((item, i) => (
                   <StarWarsCard data={item} key={i} type={section.type} />
                 ))}

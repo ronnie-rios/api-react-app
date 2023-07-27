@@ -17,7 +17,7 @@ const SearchForm = ({ allData }) => {
     e.preventDefault();
     //filter the data destructure from props, chars represents each item
     const result = allData.filter((chars) =>
-    //need the name property to lowerCase() use the .includes()pass in the search query state from our unput
+      //need the name property to lowerCase() use the .includes()pass in the search query state from our unput
       chars.name.toLowerCase().includes(searchQuery.query.toLowerCase())
     );
     //if there is a result, set the state
@@ -34,28 +34,35 @@ const SearchForm = ({ allData }) => {
   const handleToggleSearch = () => {
     setToggleSearch((prevToggleSearch) => !prevToggleSearch);
     if (!toggleSearch) {
-        setSearchQuery({ query: "" });
-        setSearchResult(null);
-        setNotFound("");
-  }
-}
+      setSearchQuery({ query: "" });
+      setSearchResult(null);
+      setNotFound("");
+    }
+  };
 
   return (
-    <div>
-      <button onClick={handleToggleSearch}>
+    <div className="p-2">
+      <button
+        className="p-2 bg-slate-200 hover:bg-slate-700 hover:text-white rounded-md"
+        onClick={handleToggleSearch}
+      >
         {toggleSearch ? "Close Search" : "Open Search"}
       </button>
       {toggleSearch && (
         <section>
           <form onSubmit={submitHandler}>
-            <label>Search for a character, starship, or vehicle.</label>
-            <input
-              className="border border-black rounded-md mx-2"
-              type="text"
-              onChange={changeHandler}
-              name="query"
-            />
-            <button>Search</button>
+            <div className='flex flex-col my-4'>
+              <label className="text-lg font-bold">Search for a character, starship, or vehicle.</label>
+              <input
+                className="border border-black rounded-md my-4 w-3/4"
+                type="text"
+                onChange={changeHandler}
+                name="query"
+              />
+              <button className="p-2 w-28 bg-slate-200 hover:bg-slate-700 hover:text-white rounded-md">
+                Search
+              </button>
+            </div>
           </form>
           <div>
             {searchResult && <StarWarsCard data={searchResult} />}
