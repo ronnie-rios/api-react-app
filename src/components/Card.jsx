@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Card = ({ data, type }) => {
   const navigate = useNavigate();
-  const [showBody, setShowBody] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
 
   //render card
   const renderPostCard = () => {
@@ -15,12 +15,12 @@ const Card = ({ data, type }) => {
           {id}: {title}
         </h1>
         
-        {showBody && <p className="pt-4">{body}</p>}
+        {showDetails && <p className="pt-4">{body}</p>}
         <button
           className="bg-green-500 hover:bg-green-800 p-2 text-white rounded-md mt-8"
-          onClick={() => setShowBody(!showBody)} // Toggle the visibility of the post body for this card on button click
+          onClick={() => setShowDetails(!showDetails)} // Toggle the visibility of the post body for this card on button click
         >
-          {showBody ? "Hide Body" : "View Body"}
+          {showDetails ? "Hide Body" : "View Body"}
         </button>
       </div>
     );

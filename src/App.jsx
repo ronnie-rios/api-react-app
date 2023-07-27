@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Details from './pages/postPages/Details';
 import AllMovies from './pages/moviePages/AllMovies';
 import MovieDetails from './pages/moviePages/MovieDetails';
+import Example from './components/Example';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/details/:id' element={<Details />}/>
           <Route path='/movies' element={<AllMovies />} />
           <Route path='/movies/:id' element={<MovieDetails />} />
+          <Route path='/example' element={<Example />} />
         </Routes>
       </Router>
     </>
