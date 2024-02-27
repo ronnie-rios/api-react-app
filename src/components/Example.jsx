@@ -5,18 +5,18 @@ const data = [
   { id: 1, name: "messi", team: "inter miami" },
   { id: 2, name: "hazard", team: "chelsea" },
   { id: 3, name: "enzo", team: "chelsea" },
-  { id: 4, name: "Augero", team: "man city" },
+  { id: 4, name: "Aguero", team: "man city" },
 ];
 
 const Example = () => {
   const [players, setPlayers] = useState(data);
-  console.log(players);
+  
   const [form, setForm] = useState({
     name: "",
     team: "",
   });
 
-  console.log(form);
+  
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({

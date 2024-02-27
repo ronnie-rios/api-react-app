@@ -6,6 +6,7 @@ import AllMovies from "./pages/moviePages/AllMovies";
 import MovieDetails from "./pages/moviePages/MovieDetails";
 import Example from "./components/Example";
 import { CartProvider } from "./store/cartStore";
+import Cart from "./components/Cart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/movies" element={<AllMovies />} />
             <Route path="/movies/:id" element={<MovieDetails />} />
             <Route path="/example" element={<Example />} />
+            <Route path="/test" element={<Cart />} />
           </Routes>
         </CartProvider>
       </Router>

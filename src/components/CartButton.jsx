@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const CartButton = () => {
   return (
@@ -7,3 +7,5 @@ const CartButton = () => {
 }
 
 export default CartButton
+
+
