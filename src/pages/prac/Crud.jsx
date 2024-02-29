@@ -8,7 +8,7 @@ const todoData = [
 
 const Crud = () => {
 	const [todos, setTodos] = useState(todoData);
-  const [toggleUpdate, setToggleUpdate] = useState(false)
+  const [selectedTodoId, setSelectedTodoId] = useState(null);
 	const [formData, setFormData] = useState({
 		task: "",
 	});
@@ -22,12 +22,19 @@ const Crud = () => {
 	};
 	const submitHandler = (e, update) => {
 		e.preventDefault();
-		if (formData.task.length > 2) {
+		if(update) {
+			const updatedTodos = todos.map((todo) =>
+          todo.id === selectedTodoId ? { ...todo, task: formData.task } : todo
+        );
+
+        setTodos(updatedTodos);
+        setFormData({ task: "" });
+        setSelectedTodoId(null);
+		} else {
 			setTodos([...todos, formData]);
 			setFormData({ task: "" });
-		} else {
-			alert("please enter 2 or more chars");
 		}
+	
 	};
 
 	const deleteHandler = (id) => {
@@ -36,11 +43,10 @@ const Crud = () => {
 	};
 
   const updateHandler = (id, task) => {
-    const foundTodo = todos.find((todo => todo.id === id))
-		setToggleUpdate(true)
-    console.log(foundTodo);
+		setSelectedTodoId(id);
+    setFormData({ task });
 
-    //setTodos()
+  
   }
 
 	return (
@@ -55,17 +61,23 @@ const Crud = () => {
           <button className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-sm" onClick={() => deleteHandler(id)}>
 							DELETE
 						</button>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-sm" onClick={() => updateHandler(id, task, true)}>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-sm" onClick={() => updateHandler(id, task)}>
 							UPDATE
 						</button>
-						{toggleUpdate && id == id ? 
-							<>
-								<form>
-									<label>Update Task: </label>
-									<input type="text" value={task}/>
-									<button className="p-2 bg-green-800 hover:bg-green-600 text-white rounded-sm">Update Task</button>
-								</form>
-							</> : <></>}
+						{selectedTodoId === id && (
+            <form onSubmit={(e) => submitHandler(e, true)}>
+              <label>Update Task: </label>
+              <input
+                type="text"
+                name="task"
+                value={formData.task}
+                onChange={formHandler}
+              />
+              <button className="p-2 bg-green-800 hover:bg-green-600 text-white rounded-sm">
+                Update Task
+              </button>
+            </form>
+          )}
 				</div>
 			))}
 			<div className="flex flex-col">
