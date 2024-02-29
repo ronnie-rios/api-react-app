@@ -37,6 +37,7 @@ const Crud = () => {
 
   const updateHandler = (id, task) => {
     const foundTodo = todos.find((todo => todo.id === id))
+		setToggleUpdate(true)
     console.log(foundTodo);
 
     //setTodos()
@@ -57,6 +58,14 @@ const Crud = () => {
           <button className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-sm" onClick={() => updateHandler(id, task, true)}>
 							UPDATE
 						</button>
+						{toggleUpdate && id == id ? 
+							<>
+								<form>
+									<label>Update Task: </label>
+									<input type="text" value={task}/>
+									<button className="p-2 bg-green-800 hover:bg-green-600 text-white rounded-sm">Update Task</button>
+								</form>
+							</> : <></>}
 				</div>
 			))}
 			<div className="flex flex-col">
