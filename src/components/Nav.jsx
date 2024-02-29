@@ -14,6 +14,9 @@ const Nav = () => {
         <Link to='/example'>
           <li className="hover:underline">Example</li>
         </Link>
+        <Link to='/crud'>
+          <li className="hover:underline">todo crud prac</li>
+        </Link>
       </ul>
     </nav>
   );
