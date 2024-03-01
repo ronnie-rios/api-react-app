@@ -84,7 +84,7 @@ const CrudTwo = () => {
 								name="task"
 								value={formData.task}
 							/>
-							<button className="bg-green-500 hover:bg-green-700 p-2 text-white mt-4 rounded-md">Add!</button>
+							<button className="bg-green-500 hover:bg-green-700 p-2 text-white mt-4 rounded-md">update!</button>
 						</form>
 					)}
 				</div>
