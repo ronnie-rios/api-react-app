@@ -10,6 +10,7 @@ import { CartProvider } from "./store/cartStore";
 
 import Tictac from "./pages/tictac/Tictac";
 import CrudTwo from "./pages/crudtwo/CrudTwo";
+import Three from "./pages/three/Three";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/crud" element={<Crud />} />
             <Route path="/tic" element={<Tictac />} />
             <Route path="/two" element={<CrudTwo />} />
+            <Route path="/three" element={<Three />} />
           </Routes>
         </CartProvider>
       </Router>

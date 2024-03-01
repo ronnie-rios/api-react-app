@@ -23,6 +23,9 @@ const Nav = () => {
         <Link to='/two'>
           <li className="hover:underline">crudtwo</li>
         </Link>
+        <Link to='/three'>
+          <li className="hover:underline">crud three</li>
+        </Link>
       </ul>
     </nav>
   );
