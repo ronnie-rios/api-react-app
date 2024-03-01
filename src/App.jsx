@@ -9,6 +9,7 @@ import Crud from "./pages/prac/Crud";
 import { CartProvider } from "./store/cartStore";
 
 import Tictac from "./pages/tictac/Tictac";
+import CrudTwo from "./pages/crudtwo/CrudTwo";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             {/* <Route path="/test" element={<Cart />} /> */}
             <Route path="/crud" element={<Crud />} />
             <Route path="/tic" element={<Tictac />} />
+            <Route path="/two" element={<CrudTwo />} />
           </Routes>
         </CartProvider>
       </Router>

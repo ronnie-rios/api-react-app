@@ -20,6 +20,9 @@ const Nav = () => {
         <Link to='/tic'>
           <li className="hover:underline">tictac</li>
         </Link>
+        <Link to='/two'>
+          <li className="hover:underline">crudtwo</li>
+        </Link>
       </ul>
     </nav>
   );
